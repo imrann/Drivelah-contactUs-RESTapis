@@ -15,7 +15,7 @@ const downloadUserData = async (req, res, next) => {
       "utf8"
     );
 
-    res.setHeader("Content-Disposition", "attachment; filename=tutorials.csv");
+    res.setHeader("Content-Disposition", "attachment; filename=usersContact.csv");
     res.set("Content-Type", "text/csv");
     res.status(200).send(usersData);
   } catch (err) {
