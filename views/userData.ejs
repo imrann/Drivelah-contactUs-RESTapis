@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/styles/userData.css">
+  
+</head>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+<body>
+     
+    <main>
+        <h1>User Contacts</h1>
+        <h3><a href="http://localhost:5000/api/usersData/downloadUserData">DOWNLOAD ALL RECORD </a></h3>
+        <ul style="list-style-type:none;">
+            <% if(prevPageValue !== -1 ) {%>
+            <li style="display: inline;"><a href =<%= prevPage %> ><< PREV</a></li>
+            <% }%>
+            &nbsp 
+            <li  style="display: inline;"><%= currentPage%></li>
+            &nbsp
+            <li style="display: inline;"><a href =<%= nextPage %> >NEXT >></a></li>
+        </ul>
+         <% for(let data of userData){ %>
+
+            <table >
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>EMAIL</th>
+                  <td>MESSAGE</td>
+                </tr>
+                <tr>
+                  <td><%=data._id%></td>
+                  <td><%=data.name%> </td>
+                  <td><%=data.email%></td>
+                  <td><%=data.message%></td>
+                </tr>
+               
+              </table>
+ 
+            </br>
+         <% }%>
+    </main>
+ 
